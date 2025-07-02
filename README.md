@@ -44,9 +44,33 @@ for ch in txt:
 
 
 
+"SEARCHINGS":
+         Linear Search
+         Binary Search
+         Sentinel Search
+         Fibonacci Search
+         Interpolation Search
 
 
 
+
+         
+linear search:
+in sorted or unsorted arrays
+[45,-9,77,32]
+1. arr of list of size n
+2. key for search element
+3. start with zero index
+4. compare arr[i]==key
+   arr[i]=key return index
+   else not (move to next index)
+5. repeat same steps till n-1
+6. if no match return -1 
+
+
+
+
+"LINEAR SEARCH:"
 
 
 def linear_search(arr,key):
