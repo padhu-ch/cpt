@@ -44,6 +44,9 @@ for ch in txt:
 
 
 
+
+
+
 "SEARCHINGS":
          Linear Search
          Binary Search
@@ -55,6 +58,10 @@ for ch in txt:
 
 
          
+
+
+
+
 linear search:
 in sorted or unsorted arrays
 [45,-9,77,32]
@@ -66,6 +73,9 @@ in sorted or unsorted arrays
    else not (move to next index)
 5. repeat same steps till n-1
 6. if no match return -1 
+
+
+
 
 
 
@@ -94,6 +104,10 @@ else:
     
 
 
+
+
+
+
 binary search:
 1. array must be sorted
 2. array is divided into 2 seperate equivalent halfs
@@ -105,6 +119,12 @@ binary search:
 8. arr[mid]>key high mid-1
 9. not found return -1
      
+
+
+
+
+
+
 
 
 
