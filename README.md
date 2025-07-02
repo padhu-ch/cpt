@@ -94,6 +94,59 @@ else:
     
 
 
+binary search:
+1. array must be sorted
+2. array is divided into 2 seperate equivalent halfs
+3. set low & high 0-->n-1
+4. condition low<=high
+5. mid=low+high//2
+6. arr[mid]==key return mid
+7. arr[mid]<key low mid+1
+8. arr[mid]>key high mid-1
+9. not found return -1
+     
+
+
+
+
+
+
+"BINARY SEARCH":
+def binary_search(arr,key):
+    low=0
+    high=len(arr)-1
+    while low<=high:
+        mid=(low+high)//2
+        if arr[mid]==key:
+            return mid
+        elif arr[mid]<key:
+            low=mid+1
+        else:
+            high=mid-1
+    return -1
+size=int(input("enter the size of array:"))
+arr=[]
+print("enter the elements:")
+for i in range(size):
+    num=int(input(f"Element {i+1}:"))
+    arr.append(num)
+key=int(input("Enter the element top search:"))
+result=binary_search(arr,key)
+if result!=-1:
+    print(f"\n Element {key} found at {result}")
+else:
+    print(f"\n Element {key} not found at {result}")
+         
+
+
+
+
+
+
+
+
+
+
 
 
 
