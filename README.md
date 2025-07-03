@@ -160,6 +160,37 @@ else:
 
 
 
+'''#jump search
+1. size n /sorted
+2. create a block key
+3.search operation will be performed
+arr[m]<var/ke < arr(k+1)[m]
+4. compare each jump linearly'''
+
+
+
+
+
+
+"JUMP SEARCH":
+
+import math
+def jump_search(arr,target):
+    if not arr:
+        return -1
+    n= len(arr)
+    step= int(math.sqrt(n))
+    prev=0
+    while prev<n and arr[prev]<target:
+        prev+=step
+    for i in range(max(0,prev-step), min(n,prev+1)):
+        if arr[i]==target:
+            return i
+    return -1
+arr=[1,3,5,7,9,11]
+target=7
+result=jump_search(arr, target)
+print(f" Element {target} found at index: {result}")
 
 
 
