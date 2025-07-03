@@ -238,6 +238,48 @@ print(f"Element {target} found at index: {result}")
 
 
 
+"FIBONACCI SEARCH"
+1. find smallest fibo number'''
+
+
+
+
+
+
+
+def fibsearch(arr,target):
+    if not arr:
+        return -1
+    n=len(arr)
+    fib2=0
+    fib1=1
+    fib=fib2+fib1
+    while fib<n:
+        fib2=fib1
+        fib1=fib
+        fib=fib2+fib1
+    offset=-1
+    while fib>1:
+        i=min(offset+fib2,n-1)
+        if arr[i]==target:
+            return i
+        elif arr[i]:
+            offset=i
+            fib=fib1
+            fib1=fib2
+            fib2=fib-fib1
+        else:
+            fib=fib2
+            fib1=fib1-fib2
+            fib2=fib-fib1
+    if fib==1 and offset+1<n and arr[offset+1]==target:
+        return offset+1
+    return -1
+arr=[2,4,6,8,10,12]
+target=10
+result=fibsearch(arr,target)
+print(f"Element {target} found at index: {result}")
+
 
 
 
