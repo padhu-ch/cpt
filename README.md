@@ -349,11 +349,62 @@ print("Sorted array", result)
 
 
 
+''' "INSERTION SORT"
+1. start from the second element(i=1)
+2. previous index value element check
+3. shift larger element one position to the right
+4. insert the current element in the correct position
+5. repeat until array sorted
+for i -> to n-1:
+       key=arr[i]
+       j=i-1
+       while j>=0 and arr[j]>key:
+            arr[j+1]=arr[j]'''
+
+
+
+"INSERTION SORT (WITH NUMBERS)"
+
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j=i-1
+        while j>=0 and arr[j]>key:
+            arr[j+1]=arr[j]
+            j-=1
+        arr[j+1]=key
+    return arr
+size=int(input("Enter the number of elements:"))
+arr=[]
+print("Enter ", size, "elements")
+for _ in range(size):
+    num=int(input())
+    arr.append(num)
+result=insertion_sort(arr)
+print("Sorted array", result)
 
 
 
 
+"INSERTION SORT (WITH STRING)"
 
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j=i-1
+        while j>=0 and arr[j]>key:
+            arr[j+1]=arr[j]
+            j-=1
+        arr[j+1]=key
+    return arr
+size=int(input("Enter the number of elements:"))
+arr=[]
+print("Enter ", size, "elements")
+for _ in range(size):
+    num=(input())
+    arr.append(num)
+result=insertion_sort(arr)
+print("Sorted array", result)
 
 
 
