@@ -282,4 +282,79 @@ print(f"Element {target} found at index: {result}")
 
 
 
+"SELECTION SORT"
+1. start from the first element in the list/array
+2. arr[0]= min
+3. compare with all the remaining elements to find the real lowest element
+4. perform swapping with current position
+5. repeat the same with adding positional values for each , min check
+
+for-->0 to n-1:
+            min=i
+            for j -> i+1 to n:
+               if arr[j]<arr[min]:
+                    swap
+min=i+1
+
+
+
+
+"SELECTION SORT(SORTING ORDER)"
+
+
+def selection_sort(arr):
+    n=len(arr)
+    for i in range(n):
+        min_index=i
+        for j in range(i+1, n):
+            if arr[j]< arr[min_index]:
+                min_index=j
+        arr[i], arr[min_index]= arr[min_index], arr[i]
+    return arr
+size=int(input("Enter the number of elements:"))
+arr=[]
+print("Enter ", size, "elements")
+for _ in range(size):
+    num=int(input())
+    arr.append(num)
+result=selection_sort(arr)
+print("Sorted array", result)
+
+
+
+
+
+
+"SELECTION SORT(DESCENDING ORDER)"
+
+
+def selection_sort(arr):
+    n=len(arr)
+    for i in range(n):
+        min_index=i
+        for j in range(i+1, n):
+            if arr[j]> arr[min_index]:
+                min_index=j
+        arr[i], arr[min_index]= arr[min_index], arr[i]
+    return arr
+size=int(input("Enter the number of elements:"))
+arr=[]
+print("Enter ", size, "elements")
+for _ in range(size):
+    num=int(input())
+    arr.append(num)
+result=selection_sort(arr)
+print("Sorted array", result)
+
+
+
+
+
+
+
+
+
+
+
+
 
