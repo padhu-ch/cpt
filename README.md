@@ -452,7 +452,36 @@ print("Sorted array", result)
 
 
 
+'''algo:
+1.start from the begining of the array/list
+2.compare each pair to adjacent number
+3.if latest element is greater than adjacent perfom swap
+4.repeat the process till n-1
+5.aftereach cycle/pass,largest unsorted element would be in correct pos
+6. repeat pass till all the elements are sorted 
 
+
+pseudo:
+for i->0to n-1:
+for j->0to n-i-2:
+if a[j]>a[j+1]
+swap(a[j],a[j+1])'''
+
+
+
+def bubble_sort(arr):
+    n=len(arr) 
+    for i in range(n):
+        for j in range(0,n-i-1):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+size=int(input("enter"))
+arr=[]
+print("enter the elements:")
+for _ in range(size):
+    arr.append(int(input()))
+print("Original list:",arr)
+bubble_sort(arr)
 
 
 
