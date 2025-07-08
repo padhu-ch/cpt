@@ -488,6 +488,30 @@ bubble_sort(arr)
 
 
 
+non-comparison sort
+1. no -ve numbers
+2. no-long numbers
+3.short confined numbers only ex: 0-100
 
+algo:
+1.find max min of array
+2. min!<0 
+3. create a count array to store frequency of numbers
+4.modify the count array for each element to be store the sum of previous counts
+                        
+5. place the output array back to the original array 
+pseudo code:
+1. find the max in arr
+2. create count(0-max)
+                        3. for i->0 to n-1:
+                        count [a[i]]+=1
+4. for i->1 to max_al:
+count[i]+=count[i-1]
+create output arr[n]
+5. for i->n-1 to 0:
+output[count[a[i]]-1]=a[i]
+count[a[i]]-=1
+copy output to arr
+time complexity=O(n+k)
 
 
