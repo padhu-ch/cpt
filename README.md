@@ -548,13 +548,34 @@ csort(arr)
 
 
 
+def csortString(s):
+    count= [0]*26
+    for char in s:
+        count[ord(char)-ord('a')]+=1
+    sorted_str=''
+    for i in range(26):
+        sorted_str+=chr(i+ord('a'))*count[i]
+    return sorted_str
+name=input("enter a single word:")
+sorted_name=c
+sortString(name)
+print("Original string:", name)
+print("Sorted string:", sorted_name)
 
 
 
 
 
 
-
+"APPROACH"
+Radix sort:
+1. find the maximum number to determine number of digits
+2. select 10^0, for digit position
+3. increment digit position, w.r.t pass
+4. maxnum//exp>0
+  perform count sort based on current digit
+  (num//exp)%10
+   multiply exp by 10
 
 
 
