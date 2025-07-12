@@ -608,3 +608,54 @@ arr=[170,45,75,90,802,24,2,66]
 print("before sort", arr)
 radix_sort(arr)
 print("after sort", arr)
+
+
+
+
+
+
+''' pancake sort:
+ 1.high value
+ 2.high value flip
+ 3.total flip
+ 4.set high value
+ 
+ alg:
+ 1.start complete array and decrease the size (n-1)
+ 2.for each size:
+   a.find the index of max element
+   b.flip the array with max element 
+   c.flip the total array to the current size max -> move to the end of 
+   the array
+ 3.repeat step1 ny n-2,n-3...
+ for  n th reduced element perform step 2 until
+ 0 th index value respectively....'''
+
+
+
+
+
+def flip(arr,k):
+     return arr[:k+1][::-1]+arr[k+1:]
+def pancake(arr):
+    n=len(arr)
+    for size in range(n,1,-1):
+        max_index=arr.index(max(arr[:size]))
+        print("Maximum index",max_index)
+        if max_index!=size-1:
+            if max_index!=0:
+                arr=flip(arr,max_index)
+                print(f"Flip at {max_index+1}: {arr}")
+            arr=flip(arr,size-1)
+            print(f" Flip at {size}: {arr}")
+    return arr
+nums=list(map(int,input("enter numbers with space:").split()))
+sorted_nums=pancake(nums)
+print("Sorted",sorted_nums)
+
+
+
+
+
+
+
