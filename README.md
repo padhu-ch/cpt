@@ -677,3 +677,10 @@ with open("file1.txt",'r') as f:
 
 
 
+sys.argv----------cmd line arg
+sys.exit()
+sys.stderr--------error msg
+sys.version
+sys.platform
+sys.recursionlimit()
+sys.stdout-------- output redirect
