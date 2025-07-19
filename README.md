@@ -737,10 +737,44 @@ except ---------:
 
 
 
+"PROGRAM"
+
+try:
+    num=int(input("enter numerator:"))
+    num1=int(input("enter denominator:"))
+    output = num/num1
+    print("Result:",output)
+except ZeroDivisionError:
+    print("Cannot divide by zero....")
+
+
+
+
+
+try:
+    num=int(input("enter numerator:"))
+    num1=int(input("enter denominator:"))
+    output = num/num1
+    print("Result:",output)
+except ZeroDivisionError:
+    print("Cannot divide by zero....")
 
 
 
 
 
 
+
+
+
+import math
+try:
+    num = int(input("Enter a number:"))
+    if num<0:
+        raise ValueError("Negative number.....")
+except ValueError:
+    print("Enter Positive number only....")
+else:
+    print("SquareRoot:", round(math.sqrt(num),4))
+   
 
