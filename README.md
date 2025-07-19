@@ -684,3 +684,63 @@ sys.version
 sys.platform
 sys.recursionlimit()
 sys.stdout-------- output redirect
+
+
+
+
+
+
+
+
+
+
+
+exception handling :
+errors - logical errors / syntax
+exceptions - synchronous and asnchronous
+4/0 
+
+
+1. Exception - for base classes
+2. ArithmeticError - math errors
+3. ZeroDivisionError - 4/0
+4. StopIteration = next method or iterator not available/ condition not available
+5. SystemExit - current os exit
+6. StandardError = pre defined keyword
+7. EOFError = I/O till the endof file
+8. ImportError = file existing errors
+9. KeyboardInterrupt - execution interrupt
+10. NameError - 
+11. ValueError -
+12. IndexError -
+13. TypeError -
+14. IOError -
+15. SyntaxError -
+16. RuntimeError -
+17. IndentationError -
+18. AttributeError -
+19. AssertionError -
+
+
+
+
+
+
+
+
+try:
+    -----------
+    -----------
+except ---------:
+
+
+
+
+
+
+
+
+
+
+
+
