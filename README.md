@@ -850,3 +850,183 @@ while True:
 
 
 
+'''delete operation at beginning'''
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class LinkedList:
+    def __init__(self):
+        self.head=None
+    def iae(self,data):
+        newnode=Node(data)
+        if not self.head:
+            self.head=newnode
+            return
+        current=self.head
+        while current.next:
+            current=current.next
+        current.next=newnode
+    def deletebegin(self):
+        if self.head is None:
+            print("Empty=LL")
+        else:
+            print("Deleted node from beginning:",self.head.data)
+            self.head=self.head.next
+    def display(self):
+        current=self.head
+        if not current:
+            print("LL-EMPTY")
+            return
+        while current:
+            print(current.data,end="---")
+            current=current.next
+        print("None")
+ll=LinkedList()
+while True:
+    print("\n LinkedList - insert at begin...")
+    print("1. insert")
+    print("2. display")
+    print("3. delete at begin")
+    print("4. exit")
+    choice=input("enter your choice:")
+    if choice=='1':
+        data=int(input("enter a value to insert"))
+        ll.iae(data)
+    elif choice=='2':
+        ll.display() 
+    elif choice=='3':
+        #key=int(input("enter the value,you want to delete:"))
+        ll.deletebegin()
+    elif choice=='4':
+        print("Exit the operation.....")
+        break
+    else:
+        print("enter only....1/2/3/4")
+
+
+
+
+
+'''delete operation at ending'''
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class LinkedList:
+    def __init__(self):
+        self.head=None
+    def iae(self,data):
+        newnode=Node(data)
+        if not self.head:
+            self.head=newnode
+            return
+        current=self.head
+        while current.next:
+            current=current.next
+        current.next=newnode
+    def deleteend(self):
+        if self.head is None:
+            print("Empty=LL")
+            return
+        if self.head.next is None:
+            print(f"Deleted last node:{self.head.data}")
+            self.head=None
+            return
+        current=self.head
+        while current.next.next:
+            current=current.next
+        print(f"Deleted last node:,{current.next.data}")        
+        current.next=None
+    def display(self):
+        current=self.head
+        if not current:
+            print("LL-EMPTY")
+            return
+        while current:
+            print(current.data,end="---")
+            current=current.next
+        print("None")
+ll=LinkedList()
+while True:
+    print("\n LinkedList - insert at begin...")
+    print("1. insert")
+    print("2. display")
+    print("3. delete at end")
+    print("4. exit")
+    choice=input("enter your choice:")
+    if choice=='1':
+        data=int(input("enter a value to insert"))
+        ll.iae(data)
+    elif choice=='2':
+        ll.display() 
+    elif choice=='3':
+        #key=int(input("enter the value,you want to delete:"))
+        ll.deleteend()
+    elif choice=='4':
+        print("Exit the operation.....")
+        break
+    else:
+        print("enter only....1/2/3/4")
+
+
+"ATM"
+
+
+class Transaction:
+    def __init__(self, transaction_type,amount):
+        self.type=transaction_type
+        self.amount=amount
+        self.next=None
+class TransactionHistory:
+    def __init__(self):
+        self.head=None
+    def add_transaction(self,transaction_type,amount):
+        nn=Transaction(transaction_type,amount)
+        if not self.head:
+            self.head=nn
+        else:
+            current=self.head
+            while current.next:
+                current=current.next
+            current.next=nn
+        print(f"{transaction_type} of Rs.{amount} recorded....")
+    def show_history(self):
+        if not self.head:
+            print("No transaction found.....")
+            return
+        print("\n Transaction History:")
+        current=self.head
+        count=1
+        while current:
+            print(f"{count}, {current.type}- Rs{current.amount}")
+            current=current.next
+            count+=1
+history=TransactionHistory()
+while True:
+    print("\n---------ATM Transaction Menu--------")
+    print("1. Deposit")
+    print("2. Withdraw")
+    print("3. History")
+    print("4. Exit")
+    choice=input("Enter your choice:")
+    if choice=='1':
+        amount=float(input("Enter the amount to deposit:"))
+        history.add_transaction("Deposit",amount)
+    elif choice=='2':
+        amount=float(input("Enter amount to withdraw:"))
+        history.add_transaction("WithDraw",amount)
+    elif choice=='3':
+        history.show_history()
+    elif choice=='4':
+        print("End of transaction..... Exit!!!")
+        break
+    else:
+        print("choose 1/2/3/4 only......." )       
+
+
+
+
+
+
+        
