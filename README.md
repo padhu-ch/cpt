@@ -1028,5 +1028,45 @@ while True:
 
 
 
+class Node:
+    def __init__(self, data):
+        self.data=data
+        self.next=None
+class LinkedList:
+    def __init__(self):
+        self.head=None
+    def insert_end(self, data):
+        newnode=Node(data)
+        if self.head is None:
+            self.head=newnode
+            return
+        current=self.head
+        while current.next:
+            current=current.next
+        current.next=newnode
+    def reverse(self):
+        prev=None
+        current=self.head
+        while current:
+            nextnode=current.next
+            current.next=prev
+            prev=current
+            current=nextnode
+        self.head=prev
+    def print_list(self):
+        current=self.head
+        while current:
+            print(f"{current.data}-", end="")
+            current=current.next
+        print("null")
+ll=LinkedList()
+nodes=[11,22,33,44,55]
+for val in nodes:
+    ll.insert_end(val)
+print("Original List:")
+ll.print_list()
+ll.reverse()
+print("Reversed List:")
+ll.print_list()
 
         
