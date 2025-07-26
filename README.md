@@ -1069,4 +1069,82 @@ ll.reverse()
 print("Reversed List:")
 ll.print_list()
 
-        
+
+
+
+"DOUBLE LINKEDLIST"
+"AT ENDING"
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head=None
+    def iae(self,data):
+        newnode=Node(data)
+        if self.head is None:
+            self.head=newnode
+            return
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=newnode
+        newnode.prev=temp
+    def display(self):
+        temp=self.head
+        print("double linked list:")
+        while temp:
+            print(temp.data,end="<-->")
+            temp=temp.next
+        print("None")
+dll=DoublyLinkedList()
+n=int(input("enter the number of elements to insert at end:"))
+for i in range(n):
+    val=int(input(f"Enter Element{i+1}:"))
+    dll.iae(val)
+dll.display()
+
+
+
+
+
+"AT BEGINNING"
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head=None
+    def iab(self,data):
+        newnode=Node(data)
+        if self.head is None:
+            self.head=newnode
+        else:
+            newnode.next=self.head
+            self.head.prev=newnode
+            self.head=newnode
+    def display(self):
+        temp=self.head
+        print("double linked list:")
+        while temp:
+            print(temp.data,end="<-->")
+            temp=temp.next
+        print("None")
+dll=DoublyLinkedList()
+n=int(input("enter the number of elements to insert at end:"))
+for i in range(n):
+    val=int(input(f"Enter Element{i+1}:"))
+    dll.iab(val)
+dll.display()
+
+
+
+
+
