@@ -1146,5 +1146,56 @@ dll.display()
 
 
 
+"AT POSITION"
 
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head=None
+    def iap(self,data):
+        newnode=Node(data)
+        if pos<=0:
+            print("Invalid position")
+            return
+        if pos==1:
+            newnode.next=self.head
+            if self.head:
+                self.head.prev=newnode
+            self.head=newnode
+            return
+        temp=self.head
+        for _ i range(pos-2):
+            if temp is None:
+                print("Position off range")
+                return
+            temp=temp.next
+        if temp is None:
+            print("No elements.....")
+            return
+        newnode.next=temp.next
+        newnode.prev=temp
+        if temp.next:
+            temp.next.prev=newnode
+        temp.next=newnode
+    def display(self):
+        temp=self.head
+        print("double linked list:")
+        while temp:
+            print(temp.data,end="<-->")
+            temp=temp.next
+        print("None")
+dll=DoublyLinkedList()
+dll.iap(1,100)
+n=int(input("enter the number of elements to insert at end:"))
+for i in range(n):
+    val=int(input(f"Enter Element{i+1}:"))
+    pos=int(input(f"enter the position to insert{val}"))
+    dll.iab(pos,val)
+dll.display()
 
