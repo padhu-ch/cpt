@@ -528,8 +528,6 @@ def csort(arr):
     count=[0]*(max_val+1)
     for num in arr:
         count[num]+=1
-
-
     for i in range(1,len(count)):
         count[i]+=count[i-1]
     output=[0]*len(arr)
@@ -1198,4 +1196,113 @@ for i in range(n):
     pos=int(input(f"enter the position to insert{val}"))
     dll.iab(pos,val)
 dll.display()
+
+
+
+"BACKTRAVERSE"
+
+# at the backtraverse
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class Doublylinkedlist:
+    def __init__(self):
+        self.head = None
+    def iae(self,data):
+        newnode=Node(data)
+        if self.head is None:
+            self.head=newnode
+            return
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=newnode
+        newnode.prev=temp
+    def backtraverse(self):
+        print("values for traversing backward...")
+        temp=self.head
+        if not temp:
+            print("Empty List")
+            return
+        while temp.next:
+            temp=temp.next
+        while temp:
+            print(temp.data, end='<--->')
+            temp=temp.prev
+        print("None")
+    def display(self):
+        temp = self.head
+        print("Doubly linked list:")
+        while temp:
+            print(temp.data, end="<->")
+            temp = temp.next
+        print("None")
+dll = Doublylinkedlist()
+n = int(input("Enter the number of elements to insert at end: "))
+for i in range(n):
+    val = int(input(f"Enter element {i+1}: "))
+    dll.iae(val)
+dll.display()
+dll.backtraverse()
+
+
+
+
+# at the insertion at beginning and backtraverse  
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+class Doublylinkedlist:
+    def __init__(self):
+        self.head = None
+    def iab(self,data):
+        newnode=Node(data)
+        newnode.next=self.head
+        if self.head:
+            self.head.prev=newnode
+        self.head=newnode
+    def backtraverse(self):
+        print("values for traversing backward...")
+        temp=self.head
+        if not temp:
+            print("Empty List")
+            return
+        while temp.next:
+            temp=temp.next
+        while temp:
+            print(temp.data, end='<--->')
+            temp=temp.prev
+        print("None")
+    def display(self):
+        temp = self.head
+        print("Doubly linked list:")
+        while temp:
+            print(temp.data, end="<->")
+            temp = temp.next
+        print("None")
+dll = Doublylinkedlist()
+n = int(input("Enter the number of elements to insert at end: "))
+for i in range(n):
+    val = int(input(f"Enter element {i+1}: "))
+    dll.iab(val)
+dll.display()
+dll.backtraverse()
+
+
+
+delete operation DLL:
+1. delete at begin / insert at begin
+2. delete at begin / insert at end
+3. delete at end / insert at end
+4. delete at end / insert at begin
+
+
+
 
