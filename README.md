@@ -1506,3 +1506,81 @@ d=int(input("\n how many times you want to perform delete operation:"))
 for _ in range(d):
     dll.dae()
     dll.display()
+
+
+
+
+
+
+
+# insertion at end deletion by value
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+class Doublylinkedlist:
+    def __init__(self):
+        self.head = None
+    def iae(self,data):
+        newnode=Node(data)
+        if not self.head:
+            self.head=newnode
+            return
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=newnode
+        newnode.prev=temp                                                                                                
+    def dbv(self,value):
+        temp=self.head
+        while temp:
+            if temp.data==value:
+                print(f"Deleted: {temp.data}")
+                if temp.prev:
+                    temp.prev.next=temp.next
+                else:
+                    self.head=temp.next
+                if temp.next:
+                    temp.next.prev=temp.prev
+                return
+            temp=temp.next
+        print(f"{value} not found in the list:")    
+    def display(self):
+        temp = self.head
+        print("Doubly linked list:")
+        while temp:
+            print(temp.data, end="<->")
+            temp = temp.next
+        print("None")
+
+dll = Doublylinkedlist()
+n = int(input("Enter the number of elements to insert at end: "))
+for i in range(n):
+    val = int(input(f"Enter element {i+1}: "))
+    dll.iae(val)
+dll.display()
+d=int(input("\n how many times you want to perform delete operation:"))
+for _ in range(d):
+    val=int(input("enter value to delete:"))
+    dll.dbv(val)
+    dll.display()
+
+
+
+
+code check the duplicates in a DLL and print the count of frequency
+input = 6
+10
+20
+30
+20
+10
+40
+output:
+DLL
+10<-->20<-->30<-->20<-->10<-->40
+duplicate values in DLL:
+10 appears 2 times
+20 appears 2 times
+
