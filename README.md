@@ -1584,3 +1584,163 @@ duplicate values in DLL:
 10 appears 2 times
 20 appears 2 times
 
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+class Doublylinkedlist:
+    def __init__(self):
+        self.head = None
+    def iae(self, data):  
+        newnode = Node(data)
+        if not self.head:
+            self.head = newnode
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = newnode
+        newnode.prev = temp                                 
+    def dbv(self, value): 
+        temp = self.head
+        while temp:
+            if temp.data == value:
+                print(f"Deleted: {temp.data}")
+                if temp.prev:
+                    temp.prev.next = temp.next
+                else:
+                    self.head = temp.next
+                if temp.next:
+                    temp.next.prev = temp.prev
+                return
+            temp = temp.next
+        print(f"{value} not found in the list.")
+    def display(self):
+        temp = self.head
+        print("Doubly linked list:")
+        while temp:
+            print(temp.data, end="<->")
+            temp = temp.next
+        print("None")
+    def count_duplicates(self):
+        freq = {}
+        temp = self.head
+        while temp:
+            freq[temp.data] = freq.get(temp.data, 0) + 1
+            temp = temp.next
+        print("\nFrequency of elements:")
+        for key, count in freq.items():
+            print(f"{key} : {count}")
+        print("\nDuplicates:")
+        for key, count in freq.items():
+            if count > 1:
+                print(f"{key} appears {count} times")
+dll = Doublylinkedlist()
+n = int(input("Enter the number of elements to insert at end: "))
+for i in range(n):
+    val = int(input(f"Enter element {i+1}: "))
+    dll.iae(val)
+dll.display()
+dll.count_duplicates()
+d = int(input("\nHow many times you want to perform delete operation: "))
+for _ in range(d):
+    val = int(input("Enter value to delete: "))
+    dll.dbv(val)
+    dll.display()
+    dll.count_duplicates()  
+
+
+
+
+"SNAKE GAME"
+
+import pygame
+import random
+import sys
+pygame.init()
+height = 500
+width = 700 
+block_size=20
+screen=pygame.display.set_mode((width,height))
+pygame.display.set_caption("🐍 Snake Game")
+BLACK=(0,0,0)
+GREEN=(0,255,0)
+RED=(255,0,0)
+WHITE=(255,255,255)
+
+# SPEED OF SNAKE PER FPS
+clock=pygame.time.Clock()
+font=pygame.font.SysFont(None,36)
+
+# SNAKE AND FOOD
+def draw_snake(snake_list):
+    for block in snake_list:
+        pygame.draw.rect(screen,GREEN,(*block,block_size,block_size))
+
+# FOOD POSITION
+def draw_food(pos):
+    pygame.draw.rect(screen,RED,(*pos,block_size,block_size))
+def message(text,color):
+    msg=font.render(text,True,color)
+    screen.blit(msg, [width//4, height//2])
+    
+def game_loop():
+    snake=[(100,100)]
+    direction="RIGHT"
+    change=direction
+    food=[random.randrange(0,width,block_size),random.randrange(0,height,block_size)]
+    score=0
+    while True:
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type==pygame.KEYDOWN:
+                if event.key==pygame.K_UP and direction !="DOWN":
+                    change="UP"
+                elif event.key==pygame.K_DOWN and direction !="UP":
+                    change="DOWN"
+                elif event.key==pygame.K_LEFT and direction !="RIGHT":
+                    change="LEFT"
+                elif event.key==pygame.K_RIGHT and direction !="LEFT":
+                    change="RIGHT"
+        direction=change
+        x,y=snake[0]
+        if direction=="UP":
+            y-=block_size
+        elif direction=="DOWN":
+            y+=block_size
+        elif direction=="LEFT":
+            x-=block_size
+        elif direction=="RIGHT":
+            x+=block_size
+        head=(x,y)
+        if(x<0 or x>=width or y<0 or y>=height or head in snake):
+            screen.fill(BLACK)
+            message("Game Over! Score :" +str(score), RED)
+            pygame.display.update()
+            pygame.time.wait(1000)
+            return
+        snake.insert(0,head)
+        if head==tuple(food):
+            score+=1
+            food=[random.randrange(0,width,block_size),random.randrange(0,height,block_size)]
+        else:
+            snake.pop()
+        screen.fill(BLACK)
+        draw_snake(snake)
+        draw_food(food)
+        score_text=font.render("Score:"+str(score),True,WHITE)
+        screen.blit(score_text, [10,10])
+        pygame.display.update()
+        clock.tick(10)
+game_loop()
+
+    
+    
+
+
+
